@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <img src="/icons/sun.svg" alt="" class="weather-icon large" data-current-icon>
+        <div class="header-current-temp">
+          <span data-current-temp>40</span>&deg;
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="info-group">
+          <div class="label">HIGH</div>
+          <div><span data-current-high>45</span>&deg;</div>
+        </div>
+        <div class="info-group">
+          <div class="label">FL HIGH</div>
+          <div><span data-current-fl-high>49</span>&deg;</div>
+        </div>
+        <div class="info-group">
+          <div class="label">WIND</div>
+          <div><span data-current-wind>9</span><span class="value-sub-info">km/h</span></div>
+        </div>
+        <div class="info-group">
+          <div class="label">LOW</div>
+          <div><span data-current-low>40</span>&deg;</div>
+        </div>
+        <div class="info-group">
+          <div class="label">FL LOW</div>
+          <div><span data-current-fl-low>36</span>&deg;</div>
+        </div>
+        <div class="info-group">
+        <div class="label">PRECIP</div>
+          <div><span data-current-precip>0.1</span><span class="value-sub-info">in</span></div>
+        </div>
+        
+      </div>
+    </header>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
