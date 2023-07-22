@@ -9,6 +9,11 @@ body{
     font-family: sans-serif;
 }
 
+.blurred{
+    filter: blur(3px);
+    overflow: hidden;
+}
+
 .header{
     display: flex;
     align-items: center;
@@ -63,4 +68,46 @@ body{
 .value-sub-info{
     font-weight: lighter;
     font-size: 0.75rem
+}
+
+
+.day-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 75px);
+    gap: .5rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.day-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid hsl(200, 100%, 10%);
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+}
+
+.day-card-day {
+    font-size: .75rem;
+    color: hsl(200, 100%, 20%);
+    margin-top: 0.5rem;
+}
+
+.hour-section{
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+}
+
+.hour-row{
+    background-color: hsl(200, 100%, 85%);
+}
+
+.hour-row:nth-child(2n){
+    background-color: hsl(200, 100%, 80%);
+}
+
+.hour-row > td{
+    padding: 0.25rem 0.5rem;
 }
