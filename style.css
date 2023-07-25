@@ -43,6 +43,10 @@ body{
     margin-left: 1rem;
 }
 
+.header-current-temp span{
+    font-size: 2rem;
+}
+
 .header-right{
     display: grid;
     width: 50%;
