@@ -1,4 +1,3 @@
-import "./style.css"
 import { getWeather } from "./public/Js/weather.js"
 import { ICON_MAP } from "./public/Js/iconMap.js";
 
