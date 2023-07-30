@@ -1,7 +1,4 @@
-*{
-    box-sizing: border-box;
-    font-size: 18px;
-}
+
 body{
     margin: 0;
     background-color: hsl(200, 100%, 85%);
