@@ -35,7 +35,7 @@ function setValue(selector, value, {parent = document} = {}){
 }
 
 function getIconUrl(iconCode){
-    return `icons/${ICON_MAP.get(iconCode)}.svg`
+    return `public/icons/${ICON_MAP.get(iconCode)}.svg`
 }
 
 const currentIcon = document.querySelector("[data-current-icon]")
