@@ -1,5 +1,7 @@
 /* https://open-meteo.com/en/docs#latitude=22.6547&longitude=88.4467&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum&current_weather=true&precipitation_unit=inch&timezone=GMT*/
 
+//https://open-meteo.com/en/docs
+
 
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 /**importing the Axios library using the ES6 import statement. Axios is a popular JavaScript library used for making HTTP requests. */
