@@ -1,10 +1,20 @@
+/* https://open-meteo.com/en/docs#latitude=22.6547&longitude=88.4467&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum&current_weather=true&precipitation_unit=inch&timezone=GMT*/
+
+
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
+/**importing the Axios library using the ES6 import statement. Axios is a popular JavaScript library used for making HTTP requests. */
 
 
 
 
-// This code snippet exports a function called "getWeather" that makes an HTTP GET request to an API to retrieve weather data based on latitude, longitude, and timezone. The function then parses the response data and returns an object containing the current, daily,
+/**getWeather Function:
+This function takes three parameters: lat (latitude), lon (longitude), and timezone. It makes an HTTP GET request to the Open Meteo API, passing the latitude, longitude, and timezone as query parameters. */
 export function getWeather(lat, lon, timezone){
+
+    /**Axios GET Request:
+    The Axios get method is used to make the HTTP GET request to the API. The API URL and query parameters are specified as arguments to the method. */
+
+
     return axios.get("https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum&current_weather=true&precipitation_unit=inch", {
             params:{
                 latitude: lat,
@@ -12,16 +22,30 @@ export function getWeather(lat, lon, timezone){
                 timezone,
             },
         }
-    )
+    ) //this is the transition point, IF we get the data from the api call above THEN we are parcing the data.
     .then(({data}) => {
+        // Loging the data to the console
+        console.log("API Response Data:", data);
         
         return{
             current: parseCurrentWeather(data),
             daily: parseDailyWeather(data),
             hourly: parseHourlyWeather(data)
         }
+        /* Parsing the Response Data:
+            The function uses destructuring to extract relevant data from the API response. 
+            It then calls three helper functions (parseCurrentWeather, parseDailyWeather, and parseHourlyWeather) to process the response data and extract specific information.*/ 
     })
 }
+
+/** Helper Functions:
+
+parseCurrentWeather: This function takes an object containing the current weather data and the daily weather data. It extracts relevant information such as current temperature, wind speed, weather code, etc. It returns an object containing the parsed data.
+
+parseDailyWeather: This function takes an object containing the daily weather data and returns an array of objects, each representing the weather for a specific day. It includes information like timestamp, weather code, and maximum temperature for each day.
+
+parseHourlyWeather: This function takes an object containing the hourly weather data and the current weather data. It returns an array of objects, each representing the weather for a specific hour. It includes information like timestamp, weather code, temperature, feels like temperature, wind speed, and precipitation for each hour. It filters out the data for past hours using the current weather time. */
+
 
 function parseCurrentWeather({current_weather, daily}){
     const { 
